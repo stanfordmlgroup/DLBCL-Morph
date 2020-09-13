@@ -1,0 +1,19 @@
+language: python
+
+sudo: true
+
+python:
+    - 3.6
+    - 3.7
+
+env:
+    global:
+        - CONDA_ENV="starter"
+
+install:
+    - pip install -r requirements.txt
+
+script:
+    - python testing_main.py
+    - python testing_model.py
+    - python testing_loss.py
