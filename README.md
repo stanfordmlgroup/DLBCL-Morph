@@ -24,6 +24,4 @@ The notebook [visualize\_geometric\_features.ipynb](https://github.com/stanfordm
 The notebook [survival\_regression.ipynb](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/notebooks/survival_regression.ipynb) reproduces the Cox model results in our paper.
 
 ### Computing All Geometric Features
-The scripts [derive\_shape\_factor\_matlb.py](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/derive_shape_factor_matlb.py) and [extract\_res.m](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/extract_res.m) computes all the geometric features that can be found in `cell_shapes.csv`. 
-
- 
+The scripts [derive\_shape\_factor\_matlb.py](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/derive_shape_factor_matlb.py) and [extract\_res.m](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/extract_res.m) computes all the geometric features that can be found in `cell_shapes.csv`. Matlab is required to run these scripts.
