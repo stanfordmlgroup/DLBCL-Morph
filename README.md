@@ -1,53 +1,29 @@
 # DLBCL-Morph: Morphological features computed using deep learning for an annotated digital DLBCL image set 
-[![Build Status](https://travis-ci.com/stanfordmlgroup/starter.svg?token=ExpCLt6UBYajQ6vSnGpy&branch=master)](https://travis-ci.com/stanfordmlgroup/starter)
-[![CodeFactor](https://www.codefactor.io/repository/github/stanfordmlgroup/starter/badge?s=40e8dc5c5da01117c4b8999f9f8326c5cd3bdf40)](https://www.codefactor.io/repository/github/stanfordmlgroup/starter)
-[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) <br>
-This is a starter repo providing skeleton of ML projects fo 
 
+DLBCL-Morph is a dataset containing 42 digitally scanned high-resolution tissue microarray (TMA) slides accompanied by clinical, cytogenetic, and geometric features from 209 DLBCL cases as described in ["DLBCL-Morph: Morphological features computed using deep learning for an annotated digital DLBCL image set"](...).  
 
-## Quick start
-### Train and save a model 
-`python main.py train --<hyperparameter> value`
+### Abstract
+Diffuse Large B-Cell Lymphoma (DLBCL) is the most common non-Hodgkin lymphoma. Though histologically DLBCL shows varying morphologies, no morphologic features have been consistently demonstrated to correlate with prognosis. We present a morphologic analysis of histology sections from 209 DLBCL cases with associated clinical and cytogenetic data. Duplicate tissue core sections were arranged in tissue microarrays (TMAs), and replicate sections were stained with H&E and several immunohistochemical
+stains. The TMAs are accompanied by pathologist-annotated regions-of-interest (ROIs) that identify areas of tissue representative of DLBCL. We used a deep learning model to segment all tumor nuclei in the ROIs, and computed several geometric features for each segmented nucleus. We fit a Cox proportional hazards model to demonstrate the utility of these geometric features in predicting prognostic outcome. The Cox model using only geometric features achieved a C-index (95% CI) of 0.635 (0.574, 0.691). Our finding suggests that geometric features computed from tumor nuclei stained to show cell morphology can provide a prognostic marker, which can be validated in additional cohorts and prospectively.
 
-### Test existing model 
-`python main.py test --checkpoint_path <path to checkpoint>`
+![Folder Structure](images/folder_structure.png)
 
-## Repo structure
-This repo is designed to speed up th research iteration in the early stage of the project. 
-Some design principles we followed: 
-- Centralize the logic of configuration
-- Include only necessary kick-starter pieces 
-- Only abstract the common component and structure across projects
-- Expose 100% data loading logic, model architecture and forward/backward logic in original PyTorch
-- Be prepared to hyper-changes
+## Code Usage
+Below we walk through the code files in this repo.
 
-### What you might want to modify and where are they?
-#### Main configuration
-`main.py` defines all the experiments level configuration (e.g. which model/optimizer to use, how to decay the learning rate, when to save the model and where, and etc.). We use [Fire](https://github.com/google/python-fire/blob/master/docs/guide.md) to automatically generate CLI for function like `train(...)` and `test(...)`. For most of the hyper-parameter searching experiments, modifying `main.py` should be enough
+### Cleaning Clinial Data
+The [data\_cleaner.py](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/data_cleaner.py) is used to create `clinical_data_cleaned.csv` from `clinical_data.xlsx`. 
 
-To further modify the training loop logic (for GAN, meta-learning, and etc.), you may want to update the `train(...)` and `test(...)` functions. You can try all your crazy research ideas there!
+### Patch extractor
+The notebook [extract\_patches.ipynb](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/notebooks/extract_patches.ipynb) shows how patches were extracted from the TMAs inside the ROIs. 
 
-#### Dataset 
-`data/dataset.py` provides a basic example but you probably want to define your own dataset with on-the-fly transforms and augmentations. This can be done by implement your class of dataset and transforming functions in `data` module and use them in `train/valid/test_dataloader()` in `lightning/model.py`. If you have a lot of dataset, you might also want to implement some `get_dataset(args)` method to help fetch the correct dataset. 
+### Visualizing Geometric Features
+The notebook [visualize\_geometric\_features.ipynb](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/notebooks/visualize_geometric_features.ipynb) illustrates the fitting of a rectangle and an ellipse to any tumor nucleus, and computation of associated geometric features.
 
-#### Model architecture
-We include most of the established backbone models in `models/pretrained.py` but you are welcome to implement your own, just as what you did in plain PyTorch. 
+### Survival Regression
+The notebook [survival\_regression.ipynb](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/notebooks/survival_regression.ipynb) reproduces the Cox model results in our paper.
 
-#### Others
-We would suggest you to put the implementation of optimizer, loss, evaluation metrics, logger and constants into `/util`. 
+### Computing All Geometric Features
+The scripts [derive\_shape\_factor\_matlb.py](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/derive_shape_factor_matlb.py) and [extract\_res.m](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/extract_res.m) computes all the geometric features that can be found in `cell_shapes.csv`. 
 
-For other project-specified codes (such as pre-processing and data visualization), you might want to leave them to `/custom`.
-
-## Useful links 
-- [Negative sampling (Google Map API)](https://github.com/stanfordmlgroup/old-starter/blob/master/preprocess/get_negatives.py)
-- [Example of dataset implementation: USGS dataset](https://github.com/stanfordmlgroup/old-starter/blob/master/data/usgs_dataset.py)
-- [Documentation for Fire](https://github.com/google/python-fire/blob/master/docs/guide.md)
-- [Documentation for Pytorch Lighning](https://williamfalcon.github.io/pytorch-lightning/)
-
-
-## Troubleshooting Notes
-- Inplace operations in PyTorch is not supported in PyTorch Lightning distributed mode. Please just use non-inplace operations instead. 
-
---- 
-Maintainers: [@Hao](mailto:haosheng@cs.stanford.edu)
  
