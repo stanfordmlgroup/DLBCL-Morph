@@ -1,8 +1,8 @@
-# Starter
+# DLBCL-Morph: Morphological features computed using deep learning for an annotated digital DLBCL image set 
 [![Build Status](https://travis-ci.com/stanfordmlgroup/starter.svg?token=ExpCLt6UBYajQ6vSnGpy&branch=master)](https://travis-ci.com/stanfordmlgroup/starter)
 [![CodeFactor](https://www.codefactor.io/repository/github/stanfordmlgroup/starter/badge?s=40e8dc5c5da01117c4b8999f9f8326c5cd3bdf40)](https://www.codefactor.io/repository/github/stanfordmlgroup/starter)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) <br>
-This is a starter repo providing skeleton of ML projects for image classification, image segmentation and image generation. Please fork this repo to get started and share your brilliant ideas through pull request. 
+This is a starter repo providing skeleton of ML projects fo 
 
 
 ## Quick start
