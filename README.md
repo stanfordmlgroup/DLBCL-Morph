@@ -27,3 +27,16 @@ The notebook [survival\_regression.ipynb](https://github.com/stanfordmlgroup/DLB
 
 ### Computing All Geometric Features
 The scripts [derive\_shape\_factor\_matlb.py](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/derive_shape_factor_matlb.py) and [extract\_res.m](https://github.com/stanfordmlgroup/DLBCL-Morph/blob/master/scripts/extract_res.m) computes all the geometric features that can be found in `cell_shapes.csv`. Matlab is required to run these scripts.
+
+## Citation
+If you use the DLBCL-Morph dataset, please cite our paper:
+```
+@misc{vrabac2020dlbclmorph,
+    title={DLBCL-Morph: Morphological features computed using deep learning for an annotated digital DLBCL image set},
+    author={Damir Vrabac and Akshay Smit and Rebecca Rojansky and Yasodha Natkunam and Ranjana H. Advani and Andrew Y. Ng and Sebastian Fernandez-Pol and Pranav Rajpurkar},
+    year={2020},
+    eprint={2009.08123},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+```
