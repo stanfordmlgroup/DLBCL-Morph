@@ -8,7 +8,7 @@ Diffuse Large B-Cell Lymphoma (DLBCL) is the most common non-Hodgkin lymphoma. T
 ### Dataset Download
 DLBCL-Morph is publicly available at this link: https://stanfordmedicine.box.com/s/0sh3plpjfovea6gv93y8a5ch1k3j0lr5
 
-![Folder Structure](figures/folder_structure.pdf)
+![Folder Structure](figures/folder_structure.png)
 
 ## Code Usage
 Below we walk through the code files in this repo.
