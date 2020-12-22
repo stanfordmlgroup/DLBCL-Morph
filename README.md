@@ -6,7 +6,7 @@ DLBCL-Morph is a dataset containing 42 digitally scanned high-resolution tissue 
 Diffuse Large B-Cell Lymphoma (DLBCL) is the most common non-Hodgkin lymphoma. Though histologically DLBCL shows varying morphologies, no morphologic features have been consistently demonstrated to correlate with prognosis. We present a morphologic analysis of histology sections from 209 DLBCL cases with associated clinical and cytogenetic data. Duplicate tissue core sections were arranged in tissue microarrays (TMAs), and replicate sections were stained with H\&E and immunohistochemical stains for CD10, BCL6, MUM1, BCL2, and MYC. The TMAs are accompanied by pathologist-annotated regions-of-interest (ROIs) that identify areas of tissue representative of DLBCL. We used a deep learning model to segment all tumor nuclei in the ROIs, and computed several geometric features for each segmented nucleus. We fit a Cox proportional hazards model to demonstrate the utility of these geometric features in predicting survival outcome, and found that it achieved a C-index (95\% CI) of 0.635 (0.574,0.691). Our finding suggests that geometric features computed from tumor nuclei is of prognostic importance, and should be validated in prospective studies.
 
 ### Dataset Download
-DLBCL-Morph is publicly available at this link: https://stanfordmedicine.box.com/s/0sh3plpjfovea6gv93y8a5ch1k3j0lr5
+DLBCL-Morph is publicly available at this link: https://stanfordmedicine.box.com/s/ub8e0wlhsdenyhdsuuzp6zhj0i82xrb1
 
 ![Folder Structure](figures/folder_structure.png)
 
